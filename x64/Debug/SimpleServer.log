@@ -1,0 +1,6 @@
+﻿  main.cpp
+D:\Kodowanie\SimpleServer\main.cpp(9,13): warning C4326: zwracany typ "main" powinien być "int" zamiast "void"
+D:\Kodowanie\SimpleServer\main.cpp(60,56): warning C4267: "argument": konwersja z "size_t" do "int", możliwa utrata danych
+D:\Kodowanie\SimpleServer\main.cpp(75,24): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+D:\Kodowanie\SimpleServer\main.cpp(82,52): warning C4267: "argument": konwersja z "size_t" do "int", możliwa utrata danych
+  SimpleServer.vcxproj -> D:\Kodowanie\SimpleServer\x64\Debug\SimpleServer.exe
