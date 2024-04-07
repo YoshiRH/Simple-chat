@@ -12,6 +12,7 @@ void main() {
 	WSADATA wsData;
 	WORD ver = MAKEWORD(2, 2);
 
+	//Check if winsock is properly initialized
 	int wsOk = WSAStartup(ver, &wsData);
 	if (wsOk != 0) {
 		cerr << "Can't initalize winsock!" << endl;
@@ -27,19 +28,19 @@ void main() {
 
 	//Bind the socket to IP and port
 	sockaddr_in hint;
-	hint.sin_family = AF_INET;
-	hint.sin_port = htons(54000);
-	hint.sin_addr.S_un.S_addr = INADDR_ANY;
+	hint.sin_family = AF_INET;                    //set family to IPv4
+	hint.sin_port = htons(54000);				  //set port to 54000
+	hint.sin_addr.S_un.S_addr = INADDR_ANY;       //set IP to any on every web interfaces
 	
-	bind(listening, (sockaddr*)&hint, sizeof(hint));
+	bind(listening, (sockaddr*)&hint, sizeof(hint));     //binding socket "listening" to the ip settings from "hint"
 
 	//Set socket for listening
 	listen(listening, SOMAXCONN);
 
-	fd_set master;
-	FD_ZERO(&master);
+	fd_set master;		
+	FD_ZERO(&master);				//clearing "master"
 
-	FD_SET(listening, &master);
+	FD_SET(listening, &master);     //added listening to master to monitore that socket
 
 	while (true) {
 		fd_set copy = master;
